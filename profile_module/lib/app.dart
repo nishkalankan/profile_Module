@@ -1,0 +1,175 @@
+import 'package:flutter/material.dart';
+//import 'package:flutter_application_1/widgets/stackWidget.dart';//
+import 'package:google_fonts/google_fonts.dart';
+//import 'package:flutter_application_1/widgets/alert_dialog.dart';//
+
+class App extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "LOYOLA COLLEGE",
+      home: Scaffold(
+        drawer: Drawer(),
+        body: StackWidget(),
+      ),
+    );
+  }
+}
+
+TextStyle titleStyle = new TextStyle(
+    fontSize: 29, letterSpacing: 0.5, fontWeight: FontWeight.w400);
+TextStyle subTitleStyle = new TextStyle(fontSize: 20, color: Colors.black54);
+
+class StackWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        height: MediaQuery.of(context).size.height,
+        width: MediaQuery.of(context).size.width,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+              begin: Alignment.centerLeft,
+              end: Alignment.topRight,
+              colors: [
+                Colors.lightBlue,
+                Colors.lightBlue,
+                /*
+                Colors.white,
+                Colors.lightBlue,
+                Colors.lightBlue,
+                Colors.lightBlue,
+                Colors.lightBlue,
+                Colors.lightBlue,
+                Colors.lightBlue,
+                Colors.lightBlue,
+                Colors.blue,*/
+              ]),
+        ),
+        child: Column(children: <Widget>[
+          Padding(
+            padding: EdgeInsets.fromLTRB(30, 30, 30, 10),
+            child: Material(
+              elevation: 10,
+              type: MaterialType.card,
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(30),
+              child: InkWell(
+                child: Container(
+                  height: MediaQuery.of(context).size.height / 2 - 70,
+                  width: MediaQuery.of(context).size.width - 10,
+                  margin: EdgeInsets.only(right: 10, left: 10, top: 10),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Center(
+                        child: Container(
+                            width: 190.0,
+                            height: 190.0,
+                            decoration: new BoxDecoration(
+                                shape: BoxShape.circle,
+                                image: new DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: new AssetImage(
+                                      "assets/GD.jpg",
+                                    )))),
+                      ),
+                      Container(
+                          child: Container(
+                              width: 200,
+                              height: 50,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(40.0),
+                                color: Colors.transparent.withOpacity(0.1),
+                              ),
+                              child: Center(
+                                  child: Text('Profile',
+                                      style: GoogleFonts.nunito(
+                                        textStyle: TextStyle(
+                                          letterSpacing: 2,
+                                          color: Colors.black87,
+                                          fontWeight: FontWeight.w700,
+                                          fontSize: 30,
+                                        ),
+                                      ))))),
+                    ],
+                  ),
+                ),
+                onTap: () {
+                  print("tapped on container");
+                },
+              ),
+            ),
+          ),
+          Container(
+            height: MediaQuery.of(context).size.height / 2,
+            width: MediaQuery.of(context).size.width,
+            margin: EdgeInsets.only(right: 30, left: 30, top: 10),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              /* gradient: LinearGradient(
+                  begin: Alignment.centerLeft,
+                  end: Alignment.topRight,
+                  colors: [
+                    Colors.white,
+                    Colors.lightBlue.shade100,
+                    Colors.lightBlue,
+                    Colors.blue,
+                  ]),*/
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: ListView(padding: EdgeInsets.only(left: 15),
+                /*crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,*/
+                children: <Widget>[
+                  SizedBox(height: 10),
+                  Text('Name',
+                      style: GoogleFonts.montserrat(textStyle: titleStyle)),
+                  Text('E. Gangadevi',
+                      style: GoogleFonts.montserrat(textStyle: subTitleStyle)),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text('ID',
+                      style: GoogleFonts.montserrat(textStyle: titleStyle)),
+                  Text('19-UCA-107',
+                      style: GoogleFonts.montserrat(textStyle: subTitleStyle)),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text('D.O.B',
+                      style: GoogleFonts.montserrat(textStyle: titleStyle)),
+                  Text('06/05/2001',
+                      style: GoogleFonts.montserrat(textStyle: subTitleStyle)),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text('Gender',
+                      style: GoogleFonts.montserrat(textStyle: titleStyle)),
+                  Text('Female',
+                      style: GoogleFonts.montserrat(textStyle: subTitleStyle)),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text('Department',
+                      style: GoogleFonts.montserrat(textStyle: titleStyle)),
+                  Text('Computer Science',
+                      style: GoogleFonts.montserrat(textStyle: subTitleStyle)),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text('Shift',
+                      style: GoogleFonts.montserrat(textStyle: titleStyle)),
+                  Text('II',
+                      style: GoogleFonts.montserrat(textStyle: subTitleStyle)),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Text('E-mail ID',
+                      style: GoogleFonts.montserrat(textStyle: titleStyle)),
+                  Text('Chinhchingmangmang@gmail.com',
+                      style: GoogleFonts.montserrat(textStyle: subTitleStyle)),
+                ]),
+          )
+        ]));
+  }
+}
